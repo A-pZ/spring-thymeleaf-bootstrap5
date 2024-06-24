@@ -31,3 +31,6 @@ replay_pid*
 mvnw
 mvnw.cmd
 /target/
+
+# IntelliJ project files
+.idea/*
