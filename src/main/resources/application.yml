@@ -3,3 +3,5 @@ spring:
     name: spring-thymeleaf-bootstrap5
 webjars:
   bootstrap: 5.3.3
+misc:
+  wait-milli-seconds: 2000
