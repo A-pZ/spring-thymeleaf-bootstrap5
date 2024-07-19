@@ -5,19 +5,19 @@
     <ul class="pagination" th:with="listurl='/list'">
         <li class="page-item" th:if="${! pages.first}">
             <a class="page-link" href="#" aria-label="Previous"
-               th:attr="hx-get=${listurl + '?page=' + pages.previousPageable().pageNumber}" hx-trigger="click" hx-target="#result-table">
+               th:hx-get="${listurl + '?page=' + pages.previousPageable().pageNumber}" hx-trigger="click" hx-target="#result-table">
                 <span aria-hidden="true">&lt;</span>
             </a>
         </li>
         <li class="page-item" th:each="seq : ${#numbers.sequence(0, pages.totalPages-1)}">
             <a class="page-link" href="#"
-               th:attr="hx-get=${listurl + '?page=' + seq}" hx-trigger="click" hx-target="#result-table"
+               th:hx-get="${listurl + '?page=' + seq}" hx-trigger="click" hx-target="#result-table"
                th:text="${seq + 1}"
                th:classappend="${seq == pages.pageable.pageNumber ? 'active' : ''}"></a>
         </li>
         <li class="page-item" th:if="${! pages.last}">
             <a class="page-link" href="#" aria-label="Next"
-               th:attr="hx-get=${listurl + '?page=' + pages.nextPageable().pageNumber}" hx-trigger="click" hx-target="#result-table">
+               th:hx-get="${listurl + '?page=' + pages.nextPageable().pageNumber}" hx-trigger="click" hx-target="#result-table">
                 <span aria-hidden="true">&gt;</span>
             </a>
         </li>
