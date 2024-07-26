@@ -70,4 +70,7 @@ public class ItemRepository {
         ;
     }
 
+    public Item getItem(Integer id) {
+        return items.getItem(id).orElseThrow(IllegalArgumentException::new);
+    }
 }

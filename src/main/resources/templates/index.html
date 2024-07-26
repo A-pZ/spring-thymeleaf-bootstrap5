@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title th:inline="text">タイトル</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/{version}/css/bootstrap.min.css(version=${@webJarsProperties.bootstrap})}" />
+    <script th:src="@{/webjars/bootstrap/{version}/js/bootstrap.min.js(version=${@webJarsProperties.bootstrap})}"></script>
     <script th:src="@{/js/htmx.min.js}"></script>
 </head>
 <body>
@@ -18,6 +19,23 @@
                 <div class="progress" id="progress-bar" role="progressbar" aria-label="Animated striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                     <div class="htmx-indicator progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modals-here" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="dialog">
+        <div class="modal-content" id="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

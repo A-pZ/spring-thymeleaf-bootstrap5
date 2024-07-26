@@ -15,4 +15,8 @@ public class ItemService {
     public Page<Item> getPageItems(Pageable pageable) {
         return itemRepository.getPageItems(pageable);
     }
+
+    public Item getItem(Integer id) {
+        return itemRepository.getItem(id);
+    }
 }
