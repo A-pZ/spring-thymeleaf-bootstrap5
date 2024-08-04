@@ -1,8 +1,7 @@
 package com.github.apz.sample.controller;
 
-import com.github.apz.sample.model.Item;
-import com.github.apz.sample.service.ItemService;
-import lombok.AllArgsConstructor;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -10,6 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.github.apz.sample.model.Item;
+import com.github.apz.sample.service.ItemService;
+
+import lombok.AllArgsConstructor;
 
 @Controller
 @RequestMapping("/")
@@ -39,5 +43,12 @@ public class ItemController {
         mnv.setViewName("item");
         return mnv;
     }
-
+    
+    @GetMapping("/all-list")
+    public ModelAndView listOfAll(ModelAndView mnv) {
+    	List<Item> items = itemService.getAllItems();
+    	mnv.addObject("items", items);
+    	mnv.setViewName("all-list");
+    	return mnv;
+    }
 }

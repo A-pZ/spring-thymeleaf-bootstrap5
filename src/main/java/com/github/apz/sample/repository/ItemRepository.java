@@ -1,17 +1,19 @@
 package com.github.apz.sample.repository;
 
-import com.github.apz.sample.model.Item;
-import com.github.apz.sample.model.Items;
-import jakarta.annotation.PostConstruct;
-import lombok.extern.slf4j.Slf4j;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.function.Predicate;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.function.Predicate;
+import com.github.apz.sample.model.Item;
+import com.github.apz.sample.model.Items;
+
+import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
 
 @Repository
 @Slf4j
@@ -34,6 +36,10 @@ public class ItemRepository {
         List<Item> paged = values.stream().filter(pagedStart.and(pagedEnd)).toList();
 
         return new PageImpl<>(paged, pageable, values.size());
+    }
+    
+    public List<Item> getAll() {
+    	return items.getValues();
     }
 
     Items createItems() {
