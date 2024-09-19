@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title th:inline="text">タイトル</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/{version}/css/bootstrap.min.css(version=${@webJarsProperties.bootstrap})}" />
+    <script th:src="@{/webjars/bootstrap/{version}/js/bootstrap.min.js(version=${@webJarsProperties.bootstrap})}"></script>
+    <script th:src="@{/js/htmx.min.js}"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="container p-3">
+        <div>
+            <div class="alert">一覧を表示します</div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered text-nowrap">
+                <thead>
+                <tr>
+                    <th>#番号</th>
+                    <th>名称</th>
+                    <th>価格</th>
+                    <th>在庫数</th>
+                </tr>
+                </thead>
+                <tbody id="list" hx-get="/infinite/list" hx-trigger="load" hx-select="tr">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="modals-here" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="dialog">
+        <div class="modal-content" id="modal-content">
+        </div>
+    </div>
+</div>
+</body>
+</html>
