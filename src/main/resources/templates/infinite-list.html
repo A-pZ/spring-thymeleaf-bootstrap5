@@ -4,7 +4,7 @@
     <tbody>
         <tr th:each="item : ${pages.getContent()}">
             <td>
-                <button th:hx-get="'/item/' + ${item.id}" hx-target="#modal-content" hx-trigger="click"
+                <button th:hx-get="'/item/' + ${item.id}" hx-target="#modal-content" hx-trigger="click" hx-select="div"
                         data-bs-toggle="modal" data-bs-target="#modals-here"
                         class="btn btn-primary" th:text="${item.id}">1</button>
             </td>
