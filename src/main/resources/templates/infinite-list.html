@@ -12,6 +12,7 @@
             <td th:text="${item.price}" class="text-end">100</td>
             <td th:text="${item.stock}" class="text-end">10</td>
         </tr>
+        <tr />
         <tr th:if="${! pages.last}"
             th:hx-get="'/infinite/list?page=' + ${pages.pageable.pageNumber + 1}" hx-trigger="revealed" hx-swap="afterend">
         </tr>
