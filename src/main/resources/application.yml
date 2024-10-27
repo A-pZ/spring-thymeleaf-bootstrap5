@@ -1,5 +1,8 @@
 spring:
   application:
     name: spring-thymeleaf-bootstrap5
+  docker:
+    compose:
+      file: "./docker/docker-compose.yml"
 webjars:
   bootstrap: 5.3.3
